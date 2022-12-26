@@ -4,7 +4,9 @@ import styles from './Sidebar.module.scss';
 const cx = classNames.bind(styles);
 
 function SideBar() {
-    return (<aside className={cx('wrapper')}>SideBar app</aside>);
+    return (<aside className={cx('wrapper')}>
+        <h2>Side bar</h2>
+    </aside>);
 }
 
 export default SideBar;
