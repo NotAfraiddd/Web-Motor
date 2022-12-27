@@ -23,8 +23,8 @@ function Header() {
                 </div>
                 <Search />  
                 <div classNames={cx('actions')}>
-                    <button className={cx('btn-login')}>Login</button>
                     <button className={cx('btn-register')}>Register</button>
+                    <button className={cx('btn-login')}>Login</button>
                 </div>
             </div>
 

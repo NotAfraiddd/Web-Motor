@@ -16,6 +16,9 @@
         flex: 1;
         caret-color: var(--primary);
     }
+    &:focus-within {
+        border: 1.5px solid rgba(22, 24, 35, 0.2);
+    }
 }
 
 .btn-search {
@@ -33,7 +36,6 @@
     font-weight: 700;
     font-family: 'ProximaNova', sans-serif;
     cursor: pointer;
-    position: relative;
 }
 
 .clear,
@@ -47,7 +49,12 @@
 }
 
 .btn-search {
-    width: 46px;
+    position: relative;
+    width: 48px;
+    line-height: 100%;
+    height: 100%;
+    color: rgba(22, 24, 35, 0.34);
+    font-size: 22px;
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
         cursor: pointer;
@@ -62,13 +69,14 @@
         background-color: rgba(22, 24, 35, 0.12);
         z-index: 2;
     }
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
 }
 
-.search-results{
+.search-results {
     width: 360px;
 }
 
-.search-title{
-
+.search-title {
 }
-
