@@ -1,6 +1,7 @@
-import Footer from "./Footer";
-import Header from "./Header";
-import SideBar from "./Sidebar";
+
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import SideBar from '../components/Sidebar';
 import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
 

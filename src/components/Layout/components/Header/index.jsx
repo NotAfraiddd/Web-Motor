@@ -1,9 +1,9 @@
-import { Menu } from 'antd';
-import { MailOutlined } from '@ant-design/icons';
+
 import React, { useState } from 'react';
 import images from '~/assets/images';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
+import Search from '../Search';
 
 const cx = classNames.bind(styles);
 
@@ -11,7 +11,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div className={cx('content-logo')}>
                     <img src={images.logo} alt="Logo" srcset="" className={cx('logo')} />
                     <div>
                         <span className={cx('text-logo')}>M</span>
@@ -21,7 +21,11 @@ function Header() {
                         <span className={cx('text-logo')}>r</span>
                     </div>
                 </div>
-
+                <Search />  
+                <div classNames={cx('actions')}>
+                    <button className={cx('btn-login')}>Login</button>
+                    <button className={cx('btn-register')}>Register</button>
+                </div>
             </div>
 
         </header>
