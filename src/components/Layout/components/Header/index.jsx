@@ -4,6 +4,7 @@ import images from '~/assets/images';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import Search from '../Search';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
@@ -21,10 +22,10 @@ function Header() {
                         <span className={cx('text-logo')}>r</span>
                     </div>
                 </div>
-                <Search />  
-                <div classNames={cx('actions')}>
-                    <button className={cx('btn-register')}>Register</button>
-                    <button className={cx('btn-login')}>Login</button>
+                <Search />
+                <div classNames={cx('actions')} style={{display:'flex'}}>
+                    <Button className={cx('btn-register')}>Register</Button>
+                    <Button className={cx('btn-login')}>Login</Button>
                 </div>
             </div>
 
