@@ -32,6 +32,19 @@
     text-transform: uppercase;
 }
 
-.actions {
-    display: flex;
+.more-btn {
+    font-size: 2rem;
+    margin-left: 28px;
+    padding: 4px 8px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.more-list {
+    width: 224px;
+}
+
+.more-wrapper {
+    padding-bottom: 8px;
 }

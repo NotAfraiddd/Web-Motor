@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
     align-items: center;
-    min-width: 100px;
+    min-width: 77px;
     padding: 9px 16px;
     border-radius: 4px;
     font-size: 1.6rem;
@@ -45,22 +45,22 @@
 
 .primary {
     color: #fff;
-    background-color: #fe2c55;
-    border-color: #fe2c55;
+    background-color: var(--primary);
+    border-color: var(--primary);
 
     &:hover {
-        border-color: #fe2c55;
+        border-color: var(--primary);
         background: linear-gradient(
                 0deg,
                 rgba(0, 0, 0, 0.06),
                 rgba(0, 0, 0, 0.06)
             ),
-            #fe2c55;
+            var(--primary);
     }
 }
 
 .outline {
-    color: #fe2c55;
+    color: var(--primary);
     border-color: currentColor;
 
     &:hover {

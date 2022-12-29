@@ -27,6 +27,8 @@ function Button({
         onClick,
         ...passProps,
     };
+    //passProps là dùng để lưu lại tất cả, trường hợp muốn chuyển sang tab mới ở trình duyệt
+    //tiktok#3 phút 14
 
     // Remove event listener when btn is disabled
     if (disabled) {
