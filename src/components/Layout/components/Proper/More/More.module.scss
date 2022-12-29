@@ -1,7 +1,23 @@
 .more-list {
     width: 224px;
+    .more-item {
+        margin-left: 0;
+    }
 }
 
 .more-wrapper {
-    padding-bottom: 8px;
+    padding-bottom: 2px;
+    a {
+        text-decoration: none;
+        color: var(--text);
+    }
+}
+
+.more-item {
+    width: 100%;
+    justify-content: flex-start;
+    border-radius: 0;
+    &:hover {
+        background-color: rgba(22, 24, 25, 0.03);
+    }
 }

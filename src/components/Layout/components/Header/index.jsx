@@ -6,31 +6,48 @@ import styles from './Header.module.scss';
 import Search from '../Search';
 import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion, faEllipsisVertical, faKeyboard, faLanguage } from '@fortawesome/free-solid-svg-icons';
 import More from '../Proper/More';
-import Tippy from '@tippyjs/react';
-import { Wrapper } from '../Proper';
-import MotorItem from '~/components/MotorItem';
 
 const cx = classNames.bind(styles);
 
+const MORE_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faLanguage} />,
+        title: 'English',
+        children: {
+            title: 'Language 263',
+            data: [
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Vietnamese',
+                },
+                {
+                    type: 'language',
+                    code: 'rus',
+                    title: 'Russian',
+                },
+            ],
+        },
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        title: 'Feedback and help',
+        to: '/feedback',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Keyboard shortcuts',
+    },
+]
+
 function Header() {
-
-    const motorItems = [
-        {
-            _id: '1',
-            name: 'BMW',
-            price: '2000',
-            avatar: 'https://autopro8.mediacdn.vn/2020/8/19/bmw-s1000rr-2-1597795333957285219652.jpg'
-        },
-        {
-            _id: '2',
-            name: 'BMW',
-            price: '2000',
-            avatar: 'https://www.revzoneyamaha-motor.com.vn/wp-content/uploads/2022/03/proevekoert-2020-yamaha-yzf-r1-amp-yzf-r1m-paa-jerez-img-2400_10436_66_1569488117-1.jpeg'
-        },
-
-    ]
 
     return (
         <header className={cx('wrapper')}>
@@ -49,40 +66,11 @@ function Header() {
                 <div classNames={cx('actions')} style={{ display: 'flex' }}>
                     <Button className={cx('btn-register')} outline>Register</Button>
                     <Button className={cx('btn-login')} primary>Login</Button>
-
-
-                    <Tippy
-                        interactive
-                        visible
-                        placement='bottom-end'
-                        render={attrs => (
-                            <div className={cx('more-list')} tabIndex="-1" {...attrs}>
-                                <Wrapper>
-                                    <div className={cx('more-wrapper')}>
-                                        {
-                                            motorItems.map((m, i) => (
-                                                <MotorItem
-                                                    key={i}
-                                                    index={m._id}
-                                                    name={m.name}
-                                                    price={m.price}
-                                                    avatar={m.avatar}
-                                                />
-                                            ))
-                                        }
-                                    </div>
-                                </Wrapper>
-                            </div>
-                        )}>
+                    <More items={MORE_ITEMS}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
-                    </Tippy>
-                    {/* <More>
-                        <button className={cx('more-btn')}>
-                            <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </button>
-                    </More> */}
+                    </More>
                 </div>
             </div>
 
