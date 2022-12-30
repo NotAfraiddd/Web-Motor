@@ -16,7 +16,7 @@ const MORE_ITEMS = [
         icon: <FontAwesomeIcon icon={faLanguage} />,
         title: 'English',
         children: {
-            title: 'Language 263',
+            title: 'Language',
             data: [
                 {
                     type: 'language',
@@ -50,10 +50,10 @@ const MORE_ITEMS = [
 function Header() {
 
     return (
-        <header className={cx('wrapper')}>
+        <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('content-logo')}>
-                    <img src={images.logo} alt="Logo" srcset="" className={cx('logo')} />
+                    <img src={images.logo} alt="Logo" className={cx('logo')} />
                     <div>
                         <span className={cx('text-logo')}>M</span>
                         <span className={cx('text-logo')}>o</span>
@@ -63,7 +63,7 @@ function Header() {
                     </div>
                 </div>
                 <Search />
-                <div classNames={cx('actions')} style={{ display: 'flex' }}>
+                <div className={cx('actions')} style={{ display: 'flex' }}>
                     <Button className={cx('btn-register')} outline>Register</Button>
                     <Button className={cx('btn-login')} primary>Login</Button>
                     <More items={MORE_ITEMS}>
@@ -74,7 +74,7 @@ function Header() {
                 </div>
             </div>
 
-        </header>
+        </div>
     );
 }
 
