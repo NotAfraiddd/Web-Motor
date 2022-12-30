@@ -6,17 +6,18 @@ import styles from './Header.module.scss';
 import Search from '../Search';
 import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleQuestion, faEllipsisVertical, faGear, faKeyboard, faLanguage, faRightFromBracket, faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion, faEllipsisVertical, faGear, faKeyboard, faLanguage, faRightFromBracket, faSignOut, faUser } from '@fortawesome/free-solid-svg-icons';
 import More from '../Proper/More';
 
 import Tippy from '@tippyjs/react';
+import { AccountIcon, Feedback, LanguageIcon, Logout, SettingIcon } from '~/components/Icons';
 
 
 const cx = classNames.bind(styles);
 
 const MORE_ITEMS = [
     {
-        icon: <FontAwesomeIcon icon={faLanguage} />,
+        icon: <LanguageIcon />,
         title: 'English',
         children: {
             title: 'Language',
@@ -40,7 +41,7 @@ const MORE_ITEMS = [
         },
     },
     {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        icon: <Feedback />,
         title: 'Feedback and help',
         to: '/feedback',
     },
@@ -48,18 +49,18 @@ const MORE_ITEMS = [
 
 const userMenu = [
     {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        icon: <AccountIcon />,
         title: 'My profile',
         to: '/@',
     },
     {
-        icon: <FontAwesomeIcon icon={faGear} />,
+        icon: <SettingIcon />,
         title: 'Setting',
         to: '/setting',
     },
     ...MORE_ITEMS,
     {
-        icon: <FontAwesomeIcon icon={faSignOut} />,
+        icon: <Logout />,
         title: 'Log out',
         to: '/',
         seperate: true,

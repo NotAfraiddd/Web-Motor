@@ -3,10 +3,11 @@
     align-items: center;
     justify-content: center;
     min-width: 100px;
-    padding: 9px 16px;
+    padding: 6px 16px;
     border-radius: 4px;
+    font-family: 'ProximaNova', sans-serif;
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     background-color: #fff;
     border: 1px solid transparent;
@@ -30,8 +31,13 @@
 .icon {
     display: inline-block;
     width: 24px;
+    height: 24px;
+    line-height: 24px;
     text-align: center;
     margin-right: 8px;
+    font-family: 'ProximaNova', sans-serif;
+    font-weight: 600;
+
 }
 // Button types
 .rounded {
