@@ -6,8 +6,11 @@ import styles from './Header.module.scss';
 import Search from '../Search';
 import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleQuestion, faEllipsisVertical, faKeyboard, faLanguage } from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion, faEllipsisVertical, faGear, faKeyboard, faLanguage, faRightFromBracket, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import More from '../Proper/More';
+
+import Tippy from '@tippyjs/react';
+
 
 const cx = classNames.bind(styles);
 
@@ -41,13 +44,43 @@ const MORE_ITEMS = [
         title: 'Feedback and help',
         to: '/feedback',
     },
+]
+
+const userMenu = [
     {
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
-        title: 'Keyboard shortcuts',
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        title: 'My profile',
+        to: '/@',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faGear} />,
+        title: 'Setting',
+        to: '/setting',
+    },
+    ...MORE_ITEMS,
+    {
+        icon: <FontAwesomeIcon icon={faSignOut} />,
+        title: 'Log out',
+        to: '/',
+        seperate: true,
     },
 ]
 
 function Header() {
+
+    const currentUser = true;
+
+    // Handle logic
+    const handleMenuChange = (menuItem) => {
+        switch (menuItem.type) {
+            case 'language':
+                // Handle change language
+                break;
+            default:
+        }
+    };
+
+
 
     return (
         <div className={cx('wrapper')}>
@@ -64,17 +97,35 @@ function Header() {
                 </div>
                 <Search />
                 <div className={cx('actions')} style={{ display: 'flex' }}>
-                    <Button className={cx('btn-register')} outline>Register</Button>
-                    <Button className={cx('btn-login')} primary>Login</Button>
-                    <More items={MORE_ITEMS}>
-                        <button className={cx('more-btn')}>
-                            <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </button>
+                    {currentUser ? (
+                        <>
+                            <Tippy content='Cart' interactive trigger='click'>
+                                <button className={cx('btn-shopping')}>
+                                    <img className={cx('img-btn-shopping')} src="https://petdy-shop.vercel.app/static/media/cart.26599e765bba7672745d.png" alt="" />
+                                </button>
+                            </Tippy>
+                        </>
+                    ) : (
+                        <>
+                            <Button className={cx('btn-register')} outline>Register</Button>
+                            <Button className={cx('btn-login')} primary>Login</Button>
+                        </>
+                    )}
+                    <More items={currentUser ? userMenu : MORE_ITEMS} onChange={handleMenuChange}>
+                        {
+                            currentUser ? (
+                                <img src='https://lh3.googleusercontent.com/ogw/AOh-ky1E5WwRt1mx2s8P3VfyKzeyruDDnLpsxt0Thg2R=s32-c-mo' alt='Account Default' className={cx('user-avatar')} />
+                            ) : (
+                                <button className={cx('more-btn')}>
+                                    <FontAwesomeIcon icon={faEllipsisVertical} />
+                                </button>
+                            )
+                        }
                     </More>
                 </div>
             </div>
 
-        </div>
+        </div >
     );
 }
 

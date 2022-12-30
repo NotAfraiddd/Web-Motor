@@ -3,8 +3,12 @@ import classNames from 'classnames/bind';
 import styles from './More.module.scss';
 const cx = classNames.bind(styles);
 function MoreItem({ data, onClick }) {
+    const classes = cx('more-item', {
+        seperate: data.seperate
+    })
+
     return (
-        <Button className={cx('more-item')} leftIcon={data.icon} to={data.to} onClick={onClick}>
+        <Button className={classes} leftIcon={data.icon} to={data.to} onClick={onClick}>
             {data.title}
         </Button>
     );

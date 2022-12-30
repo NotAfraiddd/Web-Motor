@@ -49,3 +49,20 @@
 .more-wrapper {
     padding-bottom: 8px;
 }
+
+.user-avatar {
+    border-radius: 50%;
+    padding: 4px;
+    cursor: pointer;
+    height: 46px;
+}
+
+.btn-shopping {
+    background-color: var(--white);
+    img {
+        margin-right: 8px;
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+    }
+}

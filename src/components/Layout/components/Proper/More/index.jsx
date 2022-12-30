@@ -33,6 +33,7 @@ function More({ children, items = [], onChange = defaultFunc }) {
     }
     return (
         <Tippy
+            visible
             interactive
             delay={[0, 500]}
             placement='bottom-end'
