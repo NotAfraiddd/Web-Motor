@@ -35,7 +35,6 @@ function More({ children, items = [], onChange = defaultFunc }) {
         <Tippy
             interactive
             delay={[0, 500]}
-            visible
             placement='bottom-end'
             render={attrs => (
                 <div className={cx('more-list')} tabIndex="-1" {...attrs}>
@@ -50,7 +49,9 @@ function More({ children, items = [], onChange = defaultFunc }) {
                         </div>
                     </ProperWrapper>
                 </div>
-            )}>
+            )}
+            onHide={() => setHistory((prev) => prev.slice(0, 1))}
+        >
             {children}
         </Tippy>
     );
