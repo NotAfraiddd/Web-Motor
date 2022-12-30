@@ -11,6 +11,7 @@ import More from '../Proper/More';
 
 import Tippy from '@tippyjs/react';
 import { AccountIcon, Feedback, LanguageIcon, Logout, SettingIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 
 const cx = classNames.bind(styles);
@@ -67,6 +68,8 @@ const userMenu = [
     },
 ]
 
+
+
 function Header() {
 
     const currentUser = true;
@@ -100,7 +103,7 @@ function Header() {
                 <div className={cx('actions')} style={{ display: 'flex' }}>
                     {currentUser ? (
                         <>
-                            <Tippy content='Cart' interactive trigger='click'>
+                            <Tippy content='Cart' interactive>
                                 <button className={cx('btn-shopping')}>
                                     <img className={cx('img-btn-shopping')} src="https://petdy-shop.vercel.app/static/media/cart.26599e765bba7672745d.png" alt="" />
                                 </button>
@@ -115,7 +118,7 @@ function Header() {
                     <More items={currentUser ? userMenu : MORE_ITEMS} onChange={handleMenuChange}>
                         {
                             currentUser ? (
-                                <img src='https://lh3.googleusercontent.com/ogw/AOh-ky1E5WwRt1mx2s8P3VfyKzeyruDDnLpsxt0Thg2R=s32-c-mo' alt='Account Default' className={cx('user-avatar')} />
+                                <Image src='https://lh3.googleusercontent.com/ogw/AOh-ky1E5WwRt1mx2s8P323VfyKzeyruDDnLpsxt0Thg2R=s32-c-mo' className={cx('user-avatar')} />
                             ) : (
                                 <button className={cx('more-btn')}>
                                     <FontAwesomeIcon icon={faEllipsisVertical} />

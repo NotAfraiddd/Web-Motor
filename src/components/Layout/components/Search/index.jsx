@@ -7,15 +7,32 @@ import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import { Wrapper as ProperWrapper } from '../Proper';
+import MotorItem from '~/components/MotorItem';
 
 const cx = classNames.bind(styles);
+
+const motorItems = [
+    {
+        _id: '1',
+        name: 'BMW',
+        price: '2000',
+        avatar: 'https://autopro8.mediacdn.vn/2020/8/19/bmw-s1000rr-2-1597795333957285219652.jpg'
+    },
+    {
+        _id: '2',
+        name: 'BMW',
+        price: '2000',
+        avatar: 'https://www.revzoneyamaha-motor.com.vn/wp-content/uploads/2022/03/proevekoert-2020-yamaha-yzf-r1-amp-yzf-r1m-paa-jerez-img-2400_10436_66_1569488117-1.jpeg'
+    },
+
+]
 
 function Search() {
     const [searchResult, setSearchResult] = useState([]);
 
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([])
+            setSearchResult([1, 2, 3])
         }, 3000)
     }, [])
 
@@ -27,6 +44,17 @@ function Search() {
                 <div className={cx('search-results')} tabIndex="-1" {...attrs}>
                     <ProperWrapper>
                         <div className={cx('search-title')}>Account</div>
+                        {
+                            motorItems.map((m, i) => (
+                                <MotorItem
+                                    key={i}
+                                    index={m._id}
+                                    name={m.name}
+                                    price={m.price}
+                                    avatar={m.avatar}
+                                />
+                            ))
+                        }
                     </ProperWrapper>
                 </div>
             )}
