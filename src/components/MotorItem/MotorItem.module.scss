@@ -1,31 +1,15 @@
 .wrapper {
-    display: flex;
-    align-items: center;
-    padding: 6px 16px;
-    cursor: pointer;
-    color: var(--black);
-    &.wrapper:hover {
-        background: rgba(22, 24, 35, 0.03);
-    }
+    padding: 6px 10px;
 }
 
-.avatar {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-}
-
-.information {
-    flex: 1;
-    margin-left: 1rem;
+.btn-buy,
+.btn-add {
+    width: 64px;
 }
 
 .name {
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.price {
-    color: var(--text);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }

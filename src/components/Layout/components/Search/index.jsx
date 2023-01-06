@@ -14,14 +14,26 @@ const cx = classNames.bind(styles);
 const motorItems = [
     {
         _id: '1',
-        name: 'BMW',
-        price: '2000',
+        name: 'Superbike BMW S1000RR Superbike BMW S1000RR Superbike BMW S1000RR',
+        price: '$2000',
         avatar: 'https://autopro8.mediacdn.vn/2020/8/19/bmw-s1000rr-2-1597795333957285219652.jpg'
     },
     {
         _id: '2',
-        name: 'BMW',
-        price: '2000',
+        name: 'Superbike BMW S1000RR',
+        price: '$2000',
+        avatar: 'https://www.revzoneyamaha-motor.com.vn/wp-content/uploads/2022/03/proevekoert-2020-yamaha-yzf-r1-amp-yzf-r1m-paa-jerez-img-2400_10436_66_1569488117-1.jpeg'
+    },
+    {
+        _id: '2',
+        name: 'Superbike BMW S1000RR',
+        price: '$2000',
+        avatar: 'https://www.revzoneyamaha-motor.com.vn/wp-content/uploads/2022/03/proevekoert-2020-yamaha-yzf-r1-amp-yzf-r1m-paa-jerez-img-2400_10436_66_1569488117-1.jpeg'
+    },
+    {
+        _id: '2',
+        name: 'Superbike BMW S1000RR',
+        price: '$2000',
         avatar: 'https://www.revzoneyamaha-motor.com.vn/wp-content/uploads/2022/03/proevekoert-2020-yamaha-yzf-r1-amp-yzf-r1m-paa-jerez-img-2400_10436_66_1569488117-1.jpeg'
     },
 
@@ -32,8 +44,8 @@ function Search() {
 
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([1, 2, 3])
-        }, 3000)
+            setSearchResult([1])
+        }, 1000)
     }, [])
 
     return (

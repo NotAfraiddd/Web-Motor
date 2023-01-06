@@ -12,6 +12,8 @@ import More from '../Proper/More';
 import Tippy from '@tippyjs/react';
 import { AccountIcon, Feedback, LanguageIcon, Logout, SettingIcon } from '~/components/Icons';
 import Image from '~/components/Image';
+import { IconButton, useColorMode } from '@chakra-ui/react';
+import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
 
 
 const cx = classNames.bind(styles);
@@ -68,8 +70,6 @@ const userMenu = [
     },
 ]
 
-
-
 function Header() {
 
     const currentUser = true;
@@ -83,7 +83,6 @@ function Header() {
             default:
         }
     };
-
 
 
     return (
