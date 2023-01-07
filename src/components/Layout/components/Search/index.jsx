@@ -53,9 +53,9 @@ function Search() {
             interactive
             visible={searchResult.length > 0}
             render={attrs => (
-                <div className={cx('search-results')} tabIndex="-1" {...attrs}>
-                    <ProperWrapper>
-                        <div className={cx('search-title')}>Account</div>
+                <div className={cx('search-results')} tabIndex="1" {...attrs}>
+                    <ProperWrapper className={cx('proper-wrapper')}>
+                        <div className={cx('search-title')}>Somethings</div>
                         {
                             motorItems.map((m, i) => (
                                 <MotorItem

@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, HStack, Image, Stack, Text, VStack } from '@chakra-ui/react';
+import { Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Heading, HStack, Image, Stack, Text, VStack } from '@chakra-ui/react';
 import classNames from 'classnames/bind';
 import styles from './MotorItem.module.scss';
 
@@ -23,10 +23,10 @@ function MotorItem({ avatar, name, price }) {
                     <CardFooter p={'12.5px 0'}>
                         <VStack spacing={14} mr={4}>
                             <Button size={'md'} className={cx('btn-buy')} variant='solid' colorScheme='blue'>
-                                Buy now
+                                <Text >Buy now</Text>
                             </Button>
                             <Button size={'md'} className={cx('btn-add')} variant='ghost' colorScheme='blue'>
-                                Add to cart
+                                <Text >Add to cart</Text>
                             </Button>
                         </VStack>
                     </CardFooter>
