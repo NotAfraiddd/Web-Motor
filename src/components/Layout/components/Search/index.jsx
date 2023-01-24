@@ -12,45 +12,25 @@ import { useEffect, useState } from 'react';
 import { Wrapper as ProperWrapper } from '../Proper';
 import MotorItem from '~/components/MotorItem';
 import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { resultSearchsShow } from '~/contain/selector';
+import searchSlice from './searchSlice';
 
 const cx = classNames.bind(styles);
-
-const motorItems = [
-    {
-        _id: '1',
-        name: 'Superbike BMW S1000RR Superbike BMW S1000RR Superbike BMW S1000RR',
-        price: '$2000',
-        avatar: 'https://autopro8.mediacdn.vn/2020/8/19/bmw-s1000rr-2-1597795333957285219652.jpg',
-    },
-    {
-        _id: '2',
-        name: 'Superbike BMW S1000RR',
-        price: '$2000',
-        avatar: 'https://www.revzoneyamaha-motor.com.vn/wp-content/uploads/2022/03/proevekoert-2020-yamaha-yzf-r1-amp-yzf-r1m-paa-jerez-img-2400_10436_66_1569488117-1.jpeg',
-    },
-    {
-        _id: '2',
-        name: 'Superbike BMW S1000RR',
-        price: '$2000',
-        avatar: 'https://www.revzoneyamaha-motor.com.vn/wp-content/uploads/2022/03/proevekoert-2020-yamaha-yzf-r1-amp-yzf-r1m-paa-jerez-img-2400_10436_66_1569488117-1.jpeg',
-    },
-    {
-        _id: '2',
-        name: 'Superbike BMW S1000RR',
-        price: '$2000',
-        avatar: 'https://www.revzoneyamaha-motor.com.vn/wp-content/uploads/2022/03/proevekoert-2020-yamaha-yzf-r1-amp-yzf-r1m-paa-jerez-img-2400_10436_66_1569488117-1.jpeg',
-    },
-];
 
 function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const [searchShowResult, setSearchShowResult] = useState();
+    const [searchShowResult, setSearchShowResult] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const inputRef = useRef();
     useEffect(() => {
+        setLoading(true);
         setTimeout(() => {
             setSearchResult([1]);
+            setLoading(false);
         }, 1000);
     }, []);
 
@@ -62,6 +42,14 @@ function Search() {
     const handleHideResults = () => {
         setSearchShowResult(false);
     };
+
+    const displayResultShow = useSelector(resultSearchsShow);
+    const dispatch = useDispatch();
+
+    const handleFilterSearch = (data) => {
+        setSearchValue(data.target.value);
+        dispatch(searchSlice.actions.searchSomeThing(data.target.value));
+    };
     return (
         <HeadlessTippy
             interactive
@@ -70,13 +58,13 @@ function Search() {
                 <div className={cx('search-results')} tabIndex="1" {...attrs}>
                     <ProperWrapper className={cx('proper-wrapper')}>
                         <div className={cx('search-title')}>Somethings</div>
-                        {motorItems.map((m, i) => (
+                        {displayResultShow.map((item) => (
                             <MotorItem
-                                key={i}
-                                index={m._id}
-                                name={m.name}
-                                price={m.price}
-                                avatar={m.avatar}
+                                key={item.id}
+                                id={item.id}
+                                name={item.name}
+                                price={item.price}
+                                avatar={item.avatar}
                             />
                         ))}
                     </ProperWrapper>
@@ -92,23 +80,23 @@ function Search() {
                     spellCheck={false}
                     placeholder="Search something you need..."
                     value={searchValue}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={handleFilterSearch}
                     // có cái này mới tránh bị khi hover vào nó hiện
                     onFocus={() => {
                         setSearchShowResult(true);
                     }}
                 />
                 {/* clear */}
-                {/* {!!searchResult && (
+                {!!searchResult && (
                     <button
                         className={cx('clear')}
                         onClick={handleClearSearchText}
                     >
                         <FontAwesomeIcon icon={faCircleXmark} />
                     </button>
-                )} */}
+                )}
                 {/* loading */}
-                {true && (
+                {loading && (
                     <FontAwesomeIcon
                         icon={faSpinner}
                         className={cx('loading')}
