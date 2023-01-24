@@ -8,7 +8,10 @@ export const resultSearchsShow = createSelector(
     searchTextSelector,
     (dataList, searchText) => {
         return dataList.filter((dataInput) => {
-            return dataInput.name.includes(searchText);
+            return (
+                dataInput.name.includes(searchText) ||
+                dataInput.price.includes(searchText)
+            );
         });
     },
 );
