@@ -27,10 +27,8 @@ function Search() {
 
     const inputRef = useRef();
     useEffect(() => {
-        setLoading(true);
         setTimeout(() => {
-            setSearchResult([1]);
-            setLoading(false);
+            setSearchResult([]);
         }, 1000);
     }, []);
 

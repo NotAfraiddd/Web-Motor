@@ -10,13 +10,13 @@ import store from './contain/store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <Provider store={store}>
-            <GlobalStyles>
-                <ChakraProvider>
+        <GlobalStyles>
+            <ChakraProvider>
+                <Provider store={store}>
                     <App />
-                </ChakraProvider>
-            </GlobalStyles>
-        </Provider>
+                </Provider>
+            </ChakraProvider>
+        </GlobalStyles>
     </React.StrictMode>,
 );
 

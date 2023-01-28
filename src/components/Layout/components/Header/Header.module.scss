@@ -10,14 +10,21 @@
     height: 100%;
     width: var(--default-layout-width);
     padding: 0 var(--default-layout-horizontal-spacer);
-    background-color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
+svg {
     height: 60px;
+    overflow: visible;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    g {
+        path {
+            stroke: rgb(255, 255, 255);
+        }
+    }
 }
 
 .content-logo {
@@ -26,11 +33,11 @@
 }
 
 .text-logo {
-    font-size: 26px;
-    font-weight: 900;
-    color: #ff9800;
-    margin-right: 2px;
-    text-transform: uppercase;
+    font-family: 'Sirin Stencil' !important;
+    font-size: 20px;
+    text-shadow: rgb(32 32 32) 1px 1px 1px;
+    font-weight: 500;
+    text-transform: capitalize;
 }
 
 .more-btn {
