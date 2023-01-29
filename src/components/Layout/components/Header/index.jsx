@@ -5,16 +5,7 @@ import styles from './Header.module.scss';
 import Search from '../Search';
 import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faCircleQuestion,
-    faEllipsisVertical,
-    faGear,
-    faKeyboard,
-    faLanguage,
-    faRightFromBracket,
-    faSignOut,
-    faUser,
-} from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import More from '../Proper/More';
 
 import Tippy from '@tippyjs/react';
@@ -26,8 +17,7 @@ import {
     SettingIcon,
 } from '~/components/Icons';
 import Image from '~/components/Image';
-import { IconButton, useColorMode } from '@chakra-ui/react';
-import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
+import Logo from '../../../Logo';
 
 const cx = classNames.bind(styles);
 
@@ -99,10 +89,8 @@ function Header() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('content-logo')}>
-                    <img src={images.logo} alt="Logo" className={cx('logo')} />
-                    <h3 className={cx('text-logo')}>motor studio</h3>
-                </div>
+
+                <Logo />
                 <Search />
                 <div className={cx('actions')} style={{ display: 'flex' }}>
                     {currentUser ? (

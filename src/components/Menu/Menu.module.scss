@@ -1,0 +1,40 @@
+.nav-container {
+    width: 100vw;
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    position: relative;
+    height: 80px;
+}
+
+.menu-btn {
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Sirin Stencil' !important;
+    font-size: 20px;
+    color: #202020;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-color: #ffffffb3;
+    clip-path: polygon(0px 0px, 100% 0px, 80% 100%, 20% 100%);
+    width: 240px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    span {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        line-height: 40px;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,30 @@
+.container {
+    width: 160px;
+    a {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+}
+
+svg {
+    width: 5rem;
+    height: auto;
+    overflow: visible;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    g {
+        path {
+            stroke: #fff;
+        }
+    }
+}
+
+.text-logo {
+    font-family: 'Sirin Stencil' !important;
+    font-size: 20px;
+    text-shadow: rgb(32 32 32) 1px 1px 1px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
