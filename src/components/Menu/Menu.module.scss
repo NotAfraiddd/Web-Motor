@@ -10,6 +10,13 @@
 .menu {
     position: relative;
     height: 80px;
+    list-style: none;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 10rem;
 }
 
 .menu-btn {
@@ -25,7 +32,7 @@
     width: 240px;
     height: 40px;
     position: absolute;
-    top: 50%;
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
     span {
@@ -34,6 +41,16 @@
         height: 100%;
         line-height: 40px;
     }
+    &:hover {
+        cursor: pointer;
+    }
+    transition: all 0.1s linear;
+}
+
+.menu-items {
+    color: #fff;
+    font-family: 'Sirin Stencil' !important;
+    font-size: 20px;
     &:hover {
         cursor: pointer;
     }

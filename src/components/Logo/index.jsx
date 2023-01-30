@@ -30,6 +30,7 @@ function Logo() {
                     viewBox="0 0 24 24"
                     width="48px"
                     fill="#000"
+                    className="logo"
                 >
                     <g></g>
                     <g>
