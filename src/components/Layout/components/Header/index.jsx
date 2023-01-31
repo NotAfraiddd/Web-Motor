@@ -89,10 +89,16 @@ function Header() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
-
                 <Logo />
                 <Search />
-                <div className={cx('actions')} style={{ display: 'flex' }}>
+                <div
+                    className={cx('actions')}
+                    style={{
+                        display: 'flex',
+                        width: '160px',
+                        justifyContent: 'flex-end',
+                    }}
+                >
                     {currentUser ? (
                         <>
                             <Tippy content="Cart" interactive>

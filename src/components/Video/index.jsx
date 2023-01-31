@@ -10,7 +10,7 @@ function CoverVideo() {
         hidden: { opacity: 0 },
         show: {
             opacity: 1,
-            transition: { duration: 2, delay: 2, ease: 'easeInOut' },
+            transition: { delayChildren: 5, straggerChildren: 0.3 },
         },
     };
 

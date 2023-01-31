@@ -17,7 +17,7 @@ function Logo() {
         visible: {
             opacity: 1,
             x: -5,
-            transition: { duration: 2, delay: 2, ease: 'easeInOut' },
+            transition: { duration: 2, delay: 5, ease: 'easeInOut' },
         },
     };
     return (

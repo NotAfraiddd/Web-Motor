@@ -5,6 +5,7 @@ import { publicRoutes } from '~/routes';
 import { DefaultLayout } from './components/Layout';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import Loading from './components/Loading';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
     const containerRef = useRef(null);
@@ -13,7 +14,7 @@ function App() {
         setTimeout(() => {
             setLoaded(true);
         }, 3000);
-    });
+    }, []);
     return (
         <Router>
             <LocomotiveScrollProvider
@@ -36,18 +37,21 @@ function App() {
                 }
                 containerRef={containerRef}
             >
-                {loaded ? null : <Loading />}
                 <div className="App" data-scroll-container ref={containerRef}>
                     <Routes>
                         {publicRoutes.map((route, index) => {
                             const Layout = route.layout || DefaultLayout;
                             const Page = route.component;
+                            
                             return (
                                 <Route
                                     key={index}
                                     path={route.path}
                                     element={
                                         <Layout>
+                                            <AnimatePresence>
+                                                {loaded ? null : <Loading />}
+                                            </AnimatePresence>
                                             <Page />
                                         </Layout>
                                     }

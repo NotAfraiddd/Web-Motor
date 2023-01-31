@@ -1,7 +1,5 @@
-
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import SideBar from '../components/Sidebar';
 import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
 
@@ -12,7 +10,6 @@ function DefaultLayout({ children }) {
         <div className={cx('wrapper')}>
             <Header />
             <div className={cx('container')}>
-                {/* <SideBar /> */}
                 <div className={cx('content')}>{children}</div>
             </div>
             <Footer />

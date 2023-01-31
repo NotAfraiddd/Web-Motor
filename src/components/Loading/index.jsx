@@ -26,7 +26,7 @@ function Loading() {
         },
     };
     return (
-        <div
+        <motion.div
             className={cx('container')}
             initial={{ y: 0, opacity: 1 }}
             exit={{ y: '100%', opacity: 0 }}
@@ -38,7 +38,7 @@ function Loading() {
                 height="48px"
                 viewBox="0 0 24 24"
                 width="48px"
-                fill="#fff"
+                fill="none"
                 className={cx('logo-loading')}
             >
                 <g></g>
@@ -59,7 +59,7 @@ function Loading() {
             >
                 motor studio
             </motion.span>
-        </div>
+        </motion.div>
     );
 }
 
