@@ -1,12 +1,19 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from '~/routes';
 import { DefaultLayout } from './components/Layout';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
+import Loading from './components/Loading';
 
 function App() {
     const containerRef = useRef(null);
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+        setTimeout(() => {
+            setLoaded(true);
+        }, 3000);
+    });
     return (
         <Router>
             <LocomotiveScrollProvider
@@ -29,6 +36,7 @@ function App() {
                 }
                 containerRef={containerRef}
             >
+                {loaded ? null : <Loading />}
                 <div className="App" data-scroll-container ref={containerRef}>
                     <Routes>
                         {publicRoutes.map((route, index) => {

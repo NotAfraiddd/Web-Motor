@@ -45,7 +45,7 @@
 .clear,
 .loading {
     position: absolute;
-    right: calc(var(--search-button-width) + (-2px));
+    right: calc(var(--search-button-width) + (8px));
     top: 50%;
     color: rgba(22, 24, 35, 0.34);
     background-color: transparent;
