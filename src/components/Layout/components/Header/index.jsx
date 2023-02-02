@@ -1,5 +1,4 @@
 import React from 'react';
-import images from '~/assets/images';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import Search from '../Search';

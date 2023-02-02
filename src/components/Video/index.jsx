@@ -10,7 +10,10 @@ function CoverVideo() {
         hidden: { opacity: 0 },
         show: {
             opacity: 1,
-            transition: { delayChildren: 5, straggerChildren: 0.3 },
+            transition: {
+                delayChildren: 5,
+                staggerChildren: 0.3,
+            },
         },
     };
 
@@ -28,6 +31,7 @@ function CoverVideo() {
                 variants={container}
                 initial="hidden"
                 animate="show"
+                data-scroll
             >
                 <div className={cx('content-title')} va>
                     <motion.h1

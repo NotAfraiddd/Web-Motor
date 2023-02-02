@@ -1,15 +1,22 @@
 import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
+import React from 'react';
 import styles from './Loading.module.scss';
 const cx = classNames.bind(styles);
 
 function Loading() {
     const pathVariants = {
-        hidden: { opacity: 0, pathLength: 0 },
+        hidden: {
+            opacity: 0,
+            pathLength: 0,
+        },
         visible: {
             opacity: 1,
             pathLength: 1,
-            transition: { duration: 2, ease: 'easeInOut' },
+            transition: {
+                duration: 2,
+                ease: 'easeInOut',
+            },
         },
     };
     const textVariants = {
@@ -21,6 +28,7 @@ function Loading() {
             transition: {
                 duration: 1,
                 yoyo: Infinity,
+
                 ease: 'easeInOut',
             },
         },
@@ -56,6 +64,7 @@ function Loading() {
                 initial={'hidden'}
                 animate={'visible'}
                 className={cx('text-logo-loading')}
+                data-scroll
             >
                 motor studio
             </motion.span>
