@@ -84,7 +84,7 @@ function About() {
                 <img src={images.IMG1} alt="" className="img-1" />
                 <img
                     data-scroll
-                    data-scroll-speed="10"
+                    data-scroll-speed="8"
                     src={images.view1}
                     alt=""
                     className="img-2"

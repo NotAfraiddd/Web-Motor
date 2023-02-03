@@ -56,7 +56,7 @@ const userMenu = [
     {
         icon: <AccountIcon />,
         title: 'My profile',
-        to: '/@',
+        to: '/user-profile',
     },
     {
         icon: <SettingIcon />,

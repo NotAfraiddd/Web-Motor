@@ -6,6 +6,7 @@ import { DefaultLayout } from './components/Layout';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import Loading from './components/Loading';
 import { AnimatePresence } from 'framer-motion';
+import './index.css'
 
 function App() {
     const containerRef = useRef(null);
@@ -42,16 +43,16 @@ function App() {
                         {publicRoutes.map((route, index) => {
                             const Layout = route.layout || DefaultLayout;
                             const Page = route.component;
-                            
+
                             return (
                                 <Route
                                     key={index}
                                     path={route.path}
                                     element={
                                         <Layout>
-                                            <AnimatePresence>
+                                            {/* <AnimatePresence>
                                                 {loaded ? null : <Loading />}
-                                            </AnimatePresence>
+                                            </AnimatePresence> */}
                                             <Page />
                                         </Layout>
                                     }
