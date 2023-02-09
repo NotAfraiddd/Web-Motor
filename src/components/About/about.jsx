@@ -4,7 +4,7 @@ import images from '~/assets/images';
 
 const StyledSection = styled.section`
     position: relative;
-    min-height: 200vh;
+    min-height: 100vh;
     width: 80vw;
     overflow: hidden;
     display: flex;
@@ -32,7 +32,7 @@ const StyledLeft = styled.div`
 const StyledRight = styled.div`
     width: 50%;
     position: relative;
-    top: 150px;
+    margin-top: 10%;
     .img-1 {
         position: absolute;
         width: 80%;
@@ -54,7 +54,7 @@ const StyledRight = styled.div`
         position: absolute;
         width: 50%;
         height: auto;
-        top: 24%;
+        top: 38%;
         left: -26%;
         box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
         border-radius: 10px;
@@ -91,7 +91,7 @@ function About() {
                 />
                 <img
                     data-scroll
-                    data-scroll-speed="-4"
+                    data-scroll-speed="-2"
                     src={images.view2}
                     alt=""
                     className="img-3"

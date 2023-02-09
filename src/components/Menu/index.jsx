@@ -52,7 +52,7 @@ function Menu() {
                         <span>About</span>
                     </motion.li>
                 </Link>
-                <Link to={'/product'}>
+                <Link to={'/shop'}>
                     <motion.li
                         className={cx('menu-items')}
                         whileHover={{ scale: 1.1, y: -5 }}

@@ -1,7 +1,8 @@
 import classNames from 'classnames/bind';
+import About from '~/components/About/about';
 import Menu from '~/components/Menu';
+import Shop from '~/components/Shop';
 import CoverVideo from '~/components/Video';
-import About from '../About/about';
 import styles from './Home.module.scss';
 
 const cx = classNames.bind(styles);
@@ -11,7 +12,8 @@ function Home() {
         <section className={cx('wrapper')}>
             <Menu />
             <CoverVideo />
-            {/* <About /> */}
+            <About />
+            <Shop />
         </section>
     );
 }
