@@ -1,5 +1,9 @@
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useLayoutEffect, useRef } from 'react';
 import styled from 'styled-components';
+import images from '~/assets/images';
 
 const StyledSection = styled(motion.section)`
     min-height: 100vh;
@@ -52,16 +56,77 @@ const StyledRight = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 65%;
-    h1 {
-        width: 5rem;
-        margin: 0 2rem;
-    }
+    /* width: 65%; */
 `;
 
-function Shop() {
+const Item = styled(motion.div)`
+    display: inline-block;
+    width: 20rem;
+    /* background-color: black; */
+    margin-right: 6rem;
+    img {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+    h1 {
+        font-weight: 500;
+        text-align: center;
+        cursor: pointer;
+    }
+`;
+const Product = ({ img, title = '' }) => {
     return (
-        <StyledSection>
+        <Item>
+            <img src={img} alt={title} />
+            <h1>{title}</h1>
+        </Item>
+    );
+};
+
+function Shop() {
+    gsap.registerPlugin(ScrollTrigger);
+    const ref = useRef(null);
+    const Horizontalref = useRef(null);
+
+    useLayoutEffect(() => {
+        let element = ref.current;
+        let scrollingElement = Horizontalref.current;
+        let pinWrapWidth = scrollingElement.offsetWidth;
+        setTimeout(() => {
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top top',
+                    end: pinWrapWidth,
+                    scroller: '.App', //locomotive-scroll
+                    scrub: true,
+                    // pin: true,
+                    markers: true,
+                },
+                height: `${scrollingElement.scrollWidth}px`,
+                ease: 'none',
+            });
+
+            gsap.to(scrollingElement, {
+                scrollTrigger: {
+                    trigger: scrollingElement,
+                    start: 'top top',
+                    end: pinWrapWidth,
+                    scroller: '.App', //locomotive-scroll
+                    scrub: true,
+                    markers: true,
+                    // anticipatePin: 1,
+                },
+                x: -pinWrapWidth,
+                ease: 'none',
+            });
+            ScrollTrigger.refresh();
+        }, 1000);
+    }, []);
+
+    return (
+        <StyledSection data-scroll ref={ref}>
             <StyledTitle data-scroll data-scroll-speed="-1">
                 New Collection
             </StyledTitle>
@@ -73,20 +138,19 @@ function Shop() {
                     brands, but the safety is strictly tested by us before
                     selling to the market.
                     <br /> <br />
-                    We have a wide selection from the latest car models to
+                    We have a wide selementction from the latest car models to
                     various protective clothing such as shoes, helmets. Not only
                     that, we also supply repair materials from many different
                     types of motorcycles.
                 </p>
             </StyeldLeft>
-            <StyledRight>
-                <h1>mg</h1>
-                <h1>mg</h1>
-                <h1>mg</h1>
-                <h1>mg</h1>
-                <h1>mg</h1>
-                <h1>mg</h1>
-                <h1>mg</h1>
+            <StyledRight data-scroll ref={Horizontalref}>
+                <Product img={images.IMG1} title="anh 1" />
+                <Product img={images.IMG1} title="anh 1" />
+                <Product img={images.IMG1} title="anh 1" />
+                <Product img={images.IMG1} title="anh 1" />
+                <Product img={images.IMG1} title="anh 1" />
+                <Product img={images.IMG1} title="anh 1" />
             </StyledRight>
         </StyledSection>
     );

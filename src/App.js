@@ -6,7 +6,8 @@ import { DefaultLayout } from './components/Layout';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import Loading from './components/Loading';
 import { AnimatePresence } from 'framer-motion';
-import './index.css'
+import './index.css';
+import ScrollTriggerProxy from './components/Scroll/ScrollStrigger';
 
 function App() {
     const containerRef = useRef(null);
@@ -50,9 +51,10 @@ function App() {
                                     path={route.path}
                                     element={
                                         <Layout>
-                                            {/* <AnimatePresence>
+                                            <ScrollTriggerProxy />
+                                            <AnimatePresence>
                                                 {loaded ? null : <Loading />}
-                                            </AnimatePresence> */}
+                                            </AnimatePresence>
                                             <Page />
                                         </Layout>
                                     }
