@@ -8,15 +8,16 @@ import images from '~/assets/images';
 const StyledSection = styled(motion.section)`
     min-height: 100vh;
     height: auto;
-    width: 100vw;
+    width: 100%;
     margin: 0 auto;
+    overflow: hidden;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     position: relative;
 `;
 
-const StyledTitle = styled.div`
+const StyledTitle = styled(motion.h1)`
     font-size: 5em;
     font-family: 'Kaushan Script';
     font-weight: 300;
@@ -36,7 +37,6 @@ const StyeldLeft = styled.div`
     z-index: 1;
     position: fixed;
     left: 0;
-    right: 65%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,8 +77,13 @@ const Item = styled(motion.div)`
 `;
 const Product = ({ img, title = '' }) => {
     return (
-        <Item>
-            <img src={img} alt={title} />
+        <Item
+            initial={{ filter: 'grayscale(100%)' }}
+            whileInView={{ filter: 'grayscale(0%)' }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: false, amount: 'all' }}
+        >
+            <img width="400px" height="600px" src={img} alt={title} />
             <h1>{title}</h1>
         </Item>
     );
@@ -91,42 +96,48 @@ function Shop() {
 
     useLayoutEffect(() => {
         let element = ref.current;
+
         let scrollingElement = Horizontalref.current;
+
         let pinWrapWidth = scrollingElement.offsetWidth;
+        let t1 = gsap.timeline();
         setTimeout(() => {
-            gsap.to(element, {
+            t1.to(element, {
                 scrollTrigger: {
                     trigger: element,
                     start: 'top top',
-                    end: pinWrapWidth,
+                    end: `${pinWrapWidth} bottom`,
                     scroller: '.App', //locomotive-scroll
-                    scrub: true,
-                    // pin: true,
-                    markers: true,
+                    scrub: 1,
+                    pin: true,
                 },
                 height: `${scrollingElement.scrollWidth}px`,
                 ease: 'none',
             });
 
-            gsap.to(scrollingElement, {
+            t1.to(scrollingElement, {
                 scrollTrigger: {
                     trigger: scrollingElement,
                     start: 'top top',
-                    end: pinWrapWidth,
+                    end: `${pinWrapWidth} bottom`,
                     scroller: '.App', //locomotive-scroll
-                    scrub: true,
-                    markers: true,
-                    // anticipatePin: 1,
+                    scrub: 1,
                 },
                 x: -pinWrapWidth,
                 ease: 'none',
             });
             ScrollTrigger.refresh();
         }, 1000);
+        ScrollTrigger.refresh();
+
+        return () => {
+            t1.kill();
+            // ScrollTrigger.kill();
+        };
     }, []);
 
     return (
-        <StyledSection data-scroll ref={ref}>
+        <StyledSection ref={ref}>
             <StyledTitle data-scroll data-scroll-speed="-1">
                 New Collection
             </StyledTitle>
@@ -146,9 +157,8 @@ function Shop() {
             </StyeldLeft>
             <StyledRight data-scroll ref={Horizontalref}>
                 <Product img={images.IMG1} title="anh 1" />
-                <Product img={images.IMG1} title="anh 1" />
-                <Product img={images.IMG1} title="anh 1" />
-                <Product img={images.IMG1} title="anh 1" />
+                <Product img={images.IMG2} title="anh 1" />
+                <Product img={images.IMG3} title="anh 1" />
                 <Product img={images.IMG1} title="anh 1" />
                 <Product img={images.IMG1} title="anh 1" />
             </StyledRight>

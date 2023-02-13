@@ -54,7 +54,7 @@ const StyledRight = styled.div`
         position: absolute;
         width: 50%;
         height: auto;
-        top: 38%;
+        top: 48%;
         left: -26%;
         box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
         border-radius: 10px;

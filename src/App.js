@@ -45,16 +45,16 @@ function App() {
                             const Layout = route.layout || DefaultLayout;
                             const Page = route.component;
 
+                            <ScrollTriggerProxy />;
                             return (
                                 <Route
                                     key={index}
                                     path={route.path}
                                     element={
                                         <Layout>
-                                            <ScrollTriggerProxy />
-                                            <AnimatePresence>
+                                            {/* <AnimatePresence>
                                                 {loaded ? null : <Loading />}
-                                            </AnimatePresence>
+                                            </AnimatePresence> */}
                                             <Page />
                                         </Layout>
                                     }
